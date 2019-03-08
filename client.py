@@ -13,8 +13,13 @@ token = settings["token"]
 
 title = "My first client user"
 body = "This was created from the client application"
+labels = ["to do", "help wanted"]
 issue_id = api.create_issue(org, repo, user, token, title, body)
 
 
 print("Created issue: " + str(issue_id) + "in" + org +"/" + repo)
+
+api.set_labels(org, repo, user, token, issue_id, labels)
+
+print("Added labels " + str(labels) + " to issue " + str(issue_id))
 
