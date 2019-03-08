@@ -12,7 +12,8 @@ user = settings["user"]
 token = settings["token"]
 
 all_issues = api.get_issues(org, repo, user, token)
-issue = all_issues[0]
-number = issue["number"]
+for issue in all_issues:
+	number = issue["number"]
+	api.close_issue(org, repo, user, token, number)
+print("Closing issue: " + str(number))
 
-print(number)
